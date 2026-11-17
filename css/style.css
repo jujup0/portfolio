@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
+body {
+  margin: 0;
+  font-family: "Instrument Sans", system-ui, sans-serif;
+}
+
+section {
+  min-height: 100dvh;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  padding: 0 clamp(1.5rem, 10vm, 12rem);
+}
+
+.hero {
+  min-height: 100dvh;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/pexels-francesco-ungaro-13216333.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Instrument Sans", system-ui, sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 0 clamp(1.5rem, 10vw, 12rem);
+  color: #fff;
+}
+
+.hero-content h1,
+.hero-content h2 {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+ /* color:#fff; */
+  margin: 0;
+}
+
+.hero-content p {
+  max-width: 560px;
+  margin: 2rem 0 0;
+  font-size: 1.05rem;
+  /*font-weight: 400; */
+  color: #8fa3c0;
+  line-height: 1.7;;
+}
+
+/* ---------- Floating dock ---------- */
+.dock {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.4rem;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.dock a {
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  color: #d8d2e8;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dock a:hover,
+.dock a:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  outline: none;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 480px) {
+  .dock a {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.82rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
